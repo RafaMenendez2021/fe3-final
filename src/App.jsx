@@ -7,6 +7,7 @@ import Detail from "./Routes/Detail";
 import Favs from "./Routes/Favs";
 import Contact from "./Routes/Contact";
 import "./Styles/App.css";
+import { ContextGlobal } from "./Components/utils/global.context";
 
 function App() {
 
