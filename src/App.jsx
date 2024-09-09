@@ -6,6 +6,7 @@ import Home from "./Routes/Home";
 import Detail from "./Routes/Detail";
 import Favs from "./Routes/Favs";
 import Contact from "./Routes/Contact";
+import "./Styles/App.css";
 
 
 function App() {
@@ -13,10 +14,11 @@ function App() {
     <>
     <Navbar />
     <Routes>
-      <Route path={routes.home} element={<Home />}/>
+      <Route path="/" element={<Home />}/>
       <Route path="/detail/:id" element={<Detail />}/>
-      <Route path={routes.favs} element={<Favs />}/>
-      <Route path={routes.contact} element={<Contact />}/>
+      <Route path="/favs" element={<Favs />}/>
+      <Route path="/contact" element={<Contact />}/>
+      <Route path="*" element={<h1>Error 404 - No se encontró la página</h1>}/>
     </Routes>
     <Footer/>
     </>

@@ -1,0 +1,36 @@
+.navbar {
+  background-color: rgb(212, 209, 209);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: #4c419e;
+}
+
+.logo {
+  width: 180px;
+  height: 50px;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.lightTheme{
+  background-color: black;
+  font-weight: 400;
+  font-size: larger;
+  color: beige;
+}
+
+.darkTheme{
+  background-color: white;
+  font-weight: 200;
+  font-size: medium;
+  color: rgb(21, 21, 21);
+}
