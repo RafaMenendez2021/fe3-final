@@ -3,15 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { ContextGlobal } from './Components/utils/global.context';
-
+import { ContextProvider } from './Components/utils/global.context';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <ContextGlobal>
   <BrowserRouter>
-  <App />
+    <ContextProvider> 
+      <App />
+    </ContextProvider>
   </BrowserRouter>
-  </ContextGlobal>
 );
-
-
