@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { routes } from './utils/routes'
 
 const Footer = () => {
   return (
   <footer className='footer'>
     <div className='left-content'>
       <p>Powered by</p>
-      <Link to="/">
+      <Link to={routes.home}>
         <img className='logoFooter' src="../public/images/DH.png" alt='DH-logo' />
       </Link>
     </div>
