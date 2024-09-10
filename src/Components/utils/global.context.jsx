@@ -22,12 +22,12 @@ export const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      dispatch({ type: "GET_DOCTORS", payload: res.data }); // Responde con la lista de doctores directamente
+      dispatch({ type: "GET_DOCTORS", payload: res.data });
     });
   }, []);
 
   return (
-    <ContextGlobal.Provider value={{ state, dispatch }}>
+    <ContextGlobal.Provider value={{ state, dispatch, url }}>
       {children}
     </ContextGlobal.Provider>
   );
