@@ -24,7 +24,7 @@ const Detail = () => {
   }, [doctorURL]);
   return (
     <>
-      <h1>Detail Dentist id </h1>
+      <h1>Detail Dentist  {params.id}</h1>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       <img src={`${imagenes}/doctor.jpg`} alt="Imagen doctor" className={CardStyles.cardImg}/>
       <div>
