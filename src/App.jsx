@@ -21,7 +21,7 @@ function App() {
       <Route path={routes.notFound} element={<h1>Error 404 - No se encontró la página</h1>} />
     </Routes>
   </main>
-  {/*<Footer />*/}
+  <Footer />
   </>
   );
 }

@@ -1,0 +1,41 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff; /* Cambia según sea necesario */
+    padding: 10px 20px;
+    width: 100%;
+  }
+  
+  .logo-content {
+    flex: 1;
+  }
+  
+  .logo {
+    height: 66px; /* Ajusta según sea necesario */
+  }
+  
+  .option-content {
+    flex: 2; 
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px; /* Espacio entre las opciones */
+    align-items: center;
+    padding-right: 60px;
+  }
+  
+  .option-content h4, 
+  .option-content button {
+    margin: 0;
+    color: rgb(102, 19, 210); /* Cambia según el diseño */
+    cursor: pointer;
+  }
+  
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  
+  .logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
+  
