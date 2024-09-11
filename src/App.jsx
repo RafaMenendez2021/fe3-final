@@ -12,14 +12,16 @@ function App() {
   return (
   <>
   <Navbar/>
-  <Routes>
-    <Route path={routes.home} element={<Home />} />
-    <Route path="/detail/:id" element={<Detail />} />
-    <Route path={routes.favs} element={<Favs />} />
-    <Route path={routes.contact} element={<Contact />} />
-    <Route path={routes.notFound} element={<h1>Error 404 - No se encontró la página</h1>} />
+  <main>
+    <Routes>
+      <Route path={routes.home} element={<Home />} />
+      <Route path="/detail/:id" element={<Detail />} />
+      <Route path={routes.favs} element={<Favs />} />
+      <Route path={routes.contact} element={<Contact />} />
+      <Route path={routes.notFound} element={<h1>Error 404 - No se encontró la página</h1>} />
     </Routes>
-    {/*<Footer />*/}
+  </main>
+  {/*<Footer />*/}
   </>
   );
 }
