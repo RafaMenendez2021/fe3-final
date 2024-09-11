@@ -1,9 +1,9 @@
 import React from 'react';
 import Card from '../Components/Card';
-import { useDoctorsStates } from "../Components/utils/global.context";
+import { useContextGlobal } from "../Components/utils/global.context";
 
 const Home = () => {
-  const { state } = useDoctorsStates();
+  const { state } = useContextGlobal();
 
   return (
     <main>
