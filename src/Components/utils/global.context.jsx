@@ -44,8 +44,10 @@ export const ContextProvider = ({ children }) => {
     const isFav = isAlreadyFav(doctor);
     if (isFav) {
       dispatch({ type: "REMOVE_FAVS", payload: doctor });
+      alert(`${doctor.name} ha sido removido de favoritos`); // Mensaje al remover
     } else {
       dispatch({ type: "ADD_FAVS", payload: doctor });
+      alert(`${doctor.name} ha sido agregado a favoritos`); // Mensaje al agregar
     }
   };
 

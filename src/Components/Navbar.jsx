@@ -15,7 +15,7 @@ const Navbar = () => {
         <Link to={routes.home}>
           <img
             className={`${styles.logo} ${styles[getThemeClass()]}`}
-            src={`../public/images/${state.theme}/DH-odonto.png`}
+            src={`../public/images/DH-odonto-${state.theme}.png`}
             alt="Logotipo clinica odontologica"
           />
         </Link>

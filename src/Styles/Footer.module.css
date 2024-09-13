@@ -10,7 +10,6 @@
   height: 120px;
   box-sizing: border-box;
   z-index: 10;
-  background-color: #59a7c8; /* Color por defecto (tema claro) */
   transition: background-color 0.3s, color 0.3s; /* Transición suave para el cambio de color */
 }
 
@@ -38,12 +37,12 @@
 }
 
 /* Estilos para el tema claro */
-.light .footer {
+.light {
   background-color: #59a7c8; /* Ajusta según el color de fondo deseado para el tema claro */
 }
 
 /* Estilos para el tema oscuro */
-.dark .footer {
+.dark {
   background-color: #333; /* Ajusta según el color de fondo deseado para el tema oscuro */
   color: #fff; /* Color del texto y elementos en el footer para el tema oscuro */
 }
@@ -57,5 +56,5 @@ body {
 
 main {
   flex: 1; 
-  padding-bottom: 120px; /* Ajusta para el tamaño del footer */
+  padding-bottom: 60px;
 }

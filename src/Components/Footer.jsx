@@ -18,13 +18,13 @@ const Footer = () => {
       
       <div className={styles.rightContent}>
         <a href='https://www.facebook.com'>
-          <img className={styles.redesSociales} src="../public/images/ico-facebook.png" alt='logotipo red social facebook' />
+          <img className={styles.redesSociales} src={`../public/images/ico-facebook-${state.theme}.png`} alt='logotipo red social facebook' />
         </a>
         <a href='https://www.instagram.com'>
-          <img className={styles.redesSociales} src="../public/images/ico-instagram.png" alt='logotipo red social instagram' />
+          <img className={styles.redesSociales} src={`../public/images/ico-instagram-${state.theme}.png`} alt='logotipo red social instagram' />
         </a>
         <a href='https://www.tiktok.com'>
-          <img className={styles.redesSociales} src="../public/images/ico-tiktok.png" alt='logotipo red social tiktok' />
+          <img className={styles.redesSociales} src={`../public/images/ico-tiktok-${state.theme}.png`} alt='logotipo red social tiktok' />
         </a>
       </div>
     </footer>

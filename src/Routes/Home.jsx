@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <main className={themeClass}>
-      <h1>Doctores</h1>
+      <div className={styles.text}>Doctores</div>
       <div className={styles.home}>
         {state.doctors.map((doctor) => (
           <Card key={doctor.id} doctor={doctor} />
