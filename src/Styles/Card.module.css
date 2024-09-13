@@ -80,3 +80,24 @@ button:focus-visible {
   font-size: 16px;
   color: #333;
 }
+
+.favoritos {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center; 
+  padding: 20px;
+  text-align: center; 
+}
+
+/* Estilos adicionales para el tema claro */
+.light .favoritos {
+  background-color: #ffff; 
+  color: #59a7c8;
+}
+
+/* Estilos adicionales para el tema oscuro */
+.dark .favoritos {
+  background-color: #2c2c2c; 
+  color: #ffff;
+}

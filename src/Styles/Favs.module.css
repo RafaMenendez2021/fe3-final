@@ -1,0 +1,23 @@
+/* Estilos generales para el contenedor de favoritos */
+.favoritos {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center; 
+  padding: 20px;
+  text-align: center; 
+  background-color: #ffff;
+  color: #59a7c8;
+}
+
+/* Estilos para el título */
+.titulo {
+  color: inherit; 
+}
+
+/* Estilos para la cuadrícula de tarjetas */
+.cardGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
+}

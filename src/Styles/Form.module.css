@@ -2,15 +2,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: rgb(27, 86, 205); /* El color ya está definido aquí, no es necesario repetirlo */
+    color: rgb(27, 86, 205); 
 }
 
-form {
-    background-color: #fff;
+.form {
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 20px;
     max-width: 400px;
+}
+.dark{
+    background-color: #333;
+}
+.light{
+    background-color: #ffff;
 }
 
 h1 {
@@ -78,4 +83,8 @@ button[type="button"]:hover {
     font-size: 1.5em;
     color: #4b57d8;
     font-weight: bold;
+}
+.dark {
+    background-color: #333;
+    color: #ffff
 }

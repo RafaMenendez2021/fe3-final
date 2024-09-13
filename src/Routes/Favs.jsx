@@ -1,24 +1,23 @@
 import React from "react";
 import Card from "../Components/Card";
 import { useContextGlobal } from "../Components/utils/global.context";
-import styles from "../Styles/Card.module.css";
+import styles from "../Styles/Favs.module.css";
 
 const Favs = () => {
-  const { state } = useContextGlobal(); // Obtenemos los favs del contexto global
+  const { state } = useContextGlobal(); // Asegúrate de que el estado del tema se obtenga correctamente
 
   return (
-    <>
-      <h1>Dentistas Favoritos</h1>
-      <div className="card-grid">
+    <div className={styles.favoritos}>
+      <div className={styles.cardGrid}>
         {state.favs.length > 0 ? (
           state.favs.map((doctor) => (
-            <Card key={doctor.id} doctor={doctor} className={styles.cardContainer}/>
+            <Card key={doctor.id} doctor={doctor} />
           ))
         ) : (
           <p>No tienes favoritos aún.</p>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

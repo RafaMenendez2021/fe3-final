@@ -1,6 +1,6 @@
 import FormStyles from "../Styles/Form.module.css"
 
-const Register = ({nombre,correo}) => {
+const Register = ({nombre}) => {
   return (
     <div className={FormStyles.container}>
         <h4>Gracias {nombre}, te contactaremos cuando antes vía mail.</h4>
