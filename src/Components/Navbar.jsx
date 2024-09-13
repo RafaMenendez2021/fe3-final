@@ -15,7 +15,8 @@ const Navbar = () => {
         <Link to={routes.home}>
           <img
             className={`${styles.logo} ${styles[getThemeClass()]}`}
-            src={`../public/images/DH-odonto-${state.theme}.png`}
+            // Cambiar ruta para que sea estática, desde la raíz
+            src={`/images/DH-odonto-${state.theme}.png`}
             alt="Logotipo clinica odontologica"
           />
         </Link>
