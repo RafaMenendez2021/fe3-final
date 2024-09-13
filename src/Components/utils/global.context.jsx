@@ -1,24 +1,11 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
+import { reducer } from "./reducer";
 
-export const initialState = { theme: "", doctors: [], favs: [] };
+export const initialState = { theme: "light", doctors: [], favs: [] };
 
 export const ContextGlobal = createContext();
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "GET_DOCTORS":
-      return { ...state, doctors: action.payload };
-    case "ADD_FAVS":
-      return { ...state, favs: [...state.favs, action.payload] };
-    case "REMOVE_FAVS":
-      return { ...state, favs: state.favs.filter((fav) => fav.id !== action.payload) };
-    case "SET_THEME":
-      return { ...state, theme: action.payload };
-    default:
-      throw new Error("Acción no existente");
-  }
-};
 
 
 export const ContextProvider = ({ children }) => {
@@ -31,8 +18,14 @@ export const ContextProvider = ({ children }) => {
     });
   }, []);
 
+  // Función para alternar el tema
+  const toggleTheme = () => {
+    const newTheme = state.theme === "light" ? "dark" : "light";
+    dispatch({ type: "SET_THEME", payload: newTheme });
+  };
+
   return (
-    <ContextGlobal.Provider value={{ state, dispatch, url }}>
+    <ContextGlobal.Provider value={{ state, dispatch, toggleTheme }}>
       {children}
     </ContextGlobal.Provider>
   );
@@ -42,4 +35,4 @@ export default ContextGlobal;
 
 export const useContextGlobal = () => {
   return useContext(ContextGlobal);
-}
+};

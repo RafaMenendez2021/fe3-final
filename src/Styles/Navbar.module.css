@@ -2,12 +2,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffffff; /* Cambia según sea necesario */
+    background-color: #ffff; 
     padding: 10px 20px;
     width: 100%;
   }
   
-  .logo-content {
+  .logoContent {
     flex: 1;
   }
   
@@ -15,7 +15,7 @@
     height: 66px; /* Ajusta según sea necesario */
   }
   
-  .option-content {
+  .optionContent {
     flex: 2; 
     display: flex;
     justify-content: flex-end;
@@ -24,18 +24,23 @@
     padding-right: 60px;
   }
   
-  .option-content h4, 
-  .option-content button {
+  .h4{
     margin: 0;
-    color: rgb(102, 19, 210); /* Cambia según el diseño */
+    color: #59a7c8;
     cursor: pointer;
   }
+  .button {
+    margin: 0;
+    cursor: pointer;
+    padding: 0; 
+    width: 30px; 
+    height: 30px; 
+    background: none; 
+    border: none; 
+}
   
   .logo:hover {
     filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  
-  .logo.react:hover {
     filter: drop-shadow(0 0 2em #61dafbaa);
   }
   
