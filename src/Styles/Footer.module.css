@@ -1,15 +1,17 @@
+/* Footer.module.css */
 .footer {
-  background-color: #59a7c8;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  position: fixed; /* Cambiado a fixed para que el footer se quede en la parte inferior */
-  bottom: 0; /* Asegura que el footer esté en la parte inferior de la ventana */
+  position: fixed; 
+  bottom: 0; 
   width: 100%;
   height: 120px;
   box-sizing: border-box;
-  z-index: 10; /* Asegura que el footer esté encima de otros elementos pero debajo de los modales, etc. */
+  z-index: 10;
+  background-color: #59a7c8; /* Color por defecto (tema claro) */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave para el cambio de color */
 }
 
 .left-content {
@@ -35,14 +37,25 @@
   margin-left: 24px;
 }
 
+/* Estilos para el tema claro */
+.light .footer {
+  background-color: #59a7c8; /* Ajusta según el color de fondo deseado para el tema claro */
+}
+
+/* Estilos para el tema oscuro */
+.dark .footer {
+  background-color: #333; /* Ajusta según el color de fondo deseado para el tema oscuro */
+  color: #fff; /* Color del texto y elementos en el footer para el tema oscuro */
+}
+
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Hace que el contenido ocupe al menos el alto de la ventana */
+  min-height: 100vh; 
   margin: 0;
 }
 
 main {
-  flex: 1; /* Hace que el contenido principal ocupe todo el espacio disponible */
-  padding-bottom: 60px; /* Agrega suficiente espacio en la parte inferior para que el contenido no quede debajo del footer */
+  flex: 1; 
+  padding-bottom: 120px; /* Ajusta para el tamaño del footer */
 }

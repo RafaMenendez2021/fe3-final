@@ -1,13 +1,16 @@
 import React from 'react';
 import Card from '../Components/Card';
 import { useContextGlobal } from "../Components/utils/global.context";
-import styles from '../Styles/Home.module.css'
+import styles from '../Styles/Home.module.css';
 
 const Home = () => {
   const { state } = useContextGlobal();
 
+  // Determinar la clase de tema actual
+  const themeClass = state.theme === 'dark' ? 'dark' : 'light';
+
   return (
-    <main>
+    <main className={themeClass}>
       <h1>Doctores</h1>
       <div className={styles.home}>
         {state.doctors.map((doctor) => (

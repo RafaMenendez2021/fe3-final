@@ -1,46 +1,74 @@
+/* Estilos comunes para la navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffff; 
-    padding: 10px 20px;
-    width: 100%;
-  }
-  
-  .logoContent {
-    flex: 1;
-  }
-  
-  .logo {
-    height: 66px; /* Ajusta según sea necesario */
-  }
-  
-  .optionContent {
-    flex: 2; 
-    display: flex;
-    justify-content: flex-end;
-    gap: 20px; /* Espacio entre las opciones */
-    align-items: center;
-    padding-right: 60px;
-  }
-  
-  .h4{
-    margin: 0;
-    color: #59a7c8;
-    cursor: pointer;
-  }
-  .button {
-    margin: 0;
-    cursor: pointer;
-    padding: 0; 
-    width: 30px; 
-    height: 30px; 
-    background: none; 
-    border: none; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  transition: background-color 0.3s, color 0.3s;
 }
-  
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-    filter: drop-shadow(0 0 2em #61dafbaa);
-  }
-  
+
+.logoContent {
+  flex: 1;
+}
+
+.logo {
+  height: 66px;
+  transition: filter 0.3s; 
+}
+
+.optionContent {
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px; 
+  align-items: center;
+  padding-right: 60px;
+}
+
+.h4 {
+  margin: 0;
+  cursor: pointer;
+  transition: color 0.3s; 
+}
+
+/* Estilos para el botón */
+.button {
+  margin: 0;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  transition: color 0.3s; 
+}
+
+/* Estilos específicos para el tema claro */
+.light {
+  background-color: #ffffff; 
+  color: #000000; 
+}
+
+.light .h4 {
+  color: #59a7c8; 
+}
+
+.light .logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* Estilos específicos para el tema oscuro */
+.dark {
+  background-color: #1c1a24; 
+  color: #ffffff; 
+}
+
+.dark .h4 {
+  color: #aab;
+}
+
+.dark .logo:hover {
+  filter: drop-shadow(0 0 2em #ffffffaa);
+}

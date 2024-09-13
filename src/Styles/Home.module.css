@@ -1,4 +1,19 @@
-.home{
+/* Home.module.css */
+.home {
     display: grid;
     grid-template-columns: auto auto auto auto;
-}
+    transition: background-color 0.3s, color 0.3s; /* Para transición suave entre temas */
+  }
+  
+  /* Estilos específicos para el tema claro */
+  .light .home {
+    background-color: #fdf2da; /* Ajusta según tu diseño */
+    color: #59a7c8; /* Ajusta según tu diseño */
+  }
+  
+  /* Estilos específicos para el tema oscuro */
+  .dark .home {
+    background-color: #2c2c2c; /* Ajusta según tu diseño */
+    color: #e0e0e0; /* Ajusta según tu diseño */
+  }
+  

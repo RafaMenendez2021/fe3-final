@@ -1,28 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Card from "../Components/Card";
+import { useContextGlobal } from "../Components/utils/global.context";
+import styles from "../Styles/Card.module.css";
 
 const Favs = () => {
-  const [favs, setFavs] = useState([]);
-
-  useEffect(() => {
-    // Leer los favoritos desde el localStorage cuando el componente se monte
-    const storedFavs = JSON.parse(localStorage.getItem("favs")) || [];
-    setFavs(storedFavs);
-  }, []);
-
-  const handleToggleFav = () => {
-    // Actualiza los favoritos al modificarlos
-    const updatedFavs = JSON.parse(localStorage.getItem("favs")) || [];
-    setFavs(updatedFavs);
-  };
+  const { state } = useContextGlobal(); // Obtenemos los favs del contexto global
 
   return (
     <>
-      <h1>Dentists Favs</h1>
+      <h1>Dentistas Favoritos</h1>
       <div className="card-grid">
-        {favs.length > 0 ? (
-          favs.map((doctor) => (
-            <Card key={doctor.id} doctor={doctor} onToggleFav={handleToggleFav} />
+        {state.favs.length > 0 ? (
+          state.favs.map((doctor) => (
+            <Card key={doctor.id} doctor={doctor} className={styles.cardContainer}/>
           ))
         ) : (
           <p>No tienes favoritos aún.</p>

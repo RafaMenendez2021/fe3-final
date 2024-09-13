@@ -1,11 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { routes } from './utils/routes'
-import styles from '../Styles/Footer.module.css'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { routes } from './utils/routes';
+import { useContextGlobal } from './utils/global.context';
+import styles from '../Styles/Footer.module.css';
 
 const Footer = () => {
+  const { state } = useContextGlobal();
+
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} ${styles[state.theme]}`}>
       <div className={styles.leftContent}>
         <p>Powered by</p>
         <Link to={routes.home}>
@@ -25,7 +28,7 @@ const Footer = () => {
         </a>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

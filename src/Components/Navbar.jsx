@@ -5,32 +5,33 @@ import { useContextGlobal } from './utils/global.context';
 import styles from '../Styles/Navbar.module.css';
 
 const Navbar = () => {
-  const { state, toggleTheme } = useContextGlobal(); 
+  const { state, toggleTheme, getThemeClass } = useContextGlobal();
 
   const themeIcon = state.theme === 'light' ? '🌙' : '☀️';
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={`${styles.navbar} ${styles[getThemeClass()]}`}>
       <div className={styles.logoContent}>
         <Link to={routes.home}>
-          <img className={styles.logo}
+          <img
+            className={`${styles.logo} ${styles[getThemeClass()]}`}
             src={`../public/images/${state.theme}/DH-odonto.png`}
-            alt="Logotipo clinica odontologica" />
+            alt="Logotipo clinica odontologica"
+          />
         </Link>
       </div>
       <div className={styles.optionContent}>
-        <Link to={routes.home} className={styles.h4}>
+        <Link to={routes.home} className={`${styles.h4} ${styles[getThemeClass()]}`}>
           <h4>Home</h4>
         </Link>
-        <Link to={routes.favs} className={styles.h4}>
+        <Link to={routes.favs} className={`${styles.h4} ${styles[getThemeClass()]}`}>
           <h4>Favoritos</h4>
         </Link>
-        <Link to={routes.contact} className={styles.h4}>
+        <Link to={routes.contact} className={`${styles.h4} ${styles[getThemeClass()]}`}>
           <h4>Contacto</h4>
         </Link>
-        {/* Botón para cambiar el tema con el emoji correspondiente */}
-        <button className={styles.button} onClick={toggleTheme}>
-          {themeIcon} {/* Muestra ☀️ o 🌙 según el tema */}
+        <button className={`${styles.button} ${styles[getThemeClass()]}`} onClick={toggleTheme}>
+          {themeIcon}
         </button>
       </div>
     </nav>
