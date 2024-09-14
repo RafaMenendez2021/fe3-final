@@ -2,11 +2,16 @@ import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { reducer } from "./reducer";
 
-// Cargar favoritos de localStorage
-const lsFavs = JSON.parse(localStorage.getItem("favs")) || [];
-
 // Estado inicial
-export const initialState = { theme: "light", doctors: [], favs: lsFavs };
+export const initialState = { 
+  theme: "light", 
+  doctors: [], 
+  favs: JSON.parse(localStorage.getItem("favs")) || [], 
+  nombre: "",
+  correo: "",
+  error: false,
+  showCard: false
+};
 
 // Crear el contexto
 export const ContextGlobal = createContext();
@@ -21,43 +26,75 @@ export const ContextProvider = ({ children }) => {
     });
   }, []);
 
-  // Actualizar localStorage cuando cambien los favoritos
   useEffect(() => {
     localStorage.setItem("favs", JSON.stringify(state.favs));
   }, [state.favs]);
 
-  // Función para alternar el tema
   const toggleTheme = () => {
     const newTheme = state.theme === "light" ? "dark" : "light";
-    console.log("Toggling theme to:", newTheme);
     dispatch({ type: "TOGGLE_THEME", payload: newTheme });
   };
-  
 
-  // Verificar si un doctor ya está en favoritos
   const isAlreadyFav = (doctor) => {
     return state.favs.some((fav) => fav.id === doctor.id);
   };
 
-  // Función para alternar favoritos
   const toggleFav = (doctor) => {
     const isFav = isAlreadyFav(doctor);
     if (isFav) {
       dispatch({ type: "REMOVE_FAVS", payload: doctor });
-      alert(`${doctor.name} ha sido removido de favoritos`); // Mensaje al remover
+      alert(`${doctor.name} ha sido removido de favoritos`);
     } else {
       dispatch({ type: "ADD_FAVS", payload: doctor });
-      alert(`${doctor.name} ha sido agregado a favoritos`); // Mensaje al agregar
+      alert(`${doctor.name} ha sido agregado a favoritos`);
     }
   };
 
-  // Obtener la clase de tema actual
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    dispatch({ type: "SET_FORM_FIELD", payload: { name, value } });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const correoRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const nombreRegex = /^[a-zA-Z\s]+$/;
+
+    if (
+      state.nombre.trim().length > 5 &&
+      nombreRegex.test(state.nombre) &&
+      correoRegex.test(state.correo)
+    ) {
+      dispatch({ type: "SET_SHOW_CARD", payload: true });
+      dispatch({ type: "SET_ERROR", payload: false });
+    } else {
+      dispatch({ type: "SET_ERROR", payload: true });
+      dispatch({ type: "SET_SHOW_CARD", payload: false });
+    }
+  };
+
+  const reset = () => {
+    dispatch({ type: "RESET_FORM" });
+  };
+
   const getThemeClass = () => {
     return state.theme === "dark" ? "dark" : "light";
   };
 
   return (
-    <ContextGlobal.Provider value={{ state, dispatch, toggleTheme, toggleFav, isAlreadyFav, getThemeClass }}>
+    <ContextGlobal.Provider 
+      value={{ 
+        state, 
+        dispatch, 
+        toggleTheme, 
+        toggleFav, 
+        isAlreadyFav, 
+        getThemeClass,
+        handleInputChange,
+        handleSubmit,
+        reset
+      }}
+    >
       {children}
     </ContextGlobal.Provider>
   );

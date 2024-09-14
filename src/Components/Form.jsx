@@ -1,62 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import FormStyles from "../Styles/Form.module.css";
 import Register from "./Register";
-import { useContextGlobal } from "./utils/global.context";  // Importa el contexto global
+import { useContextGlobal } from "./utils/global.context"; 
 
 const Form = () => {
-  const [nombre, setNombre] = useState("");
-  const [correo, setCorreo] = useState("");
-  const [error, setError] = useState(false);
-  const [showCard, setShowCard] = useState(false);
+  const { state, handleInputChange, handleSubmit, reset } = useContextGlobal();  
 
-  const { state } = useContextGlobal();  // Obtén el estado del tema
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const correoRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const nombreRegex = /^[a-zA-Z\s]+$/;
-
-    if (
-      nombre.trim().length > 5 &&
-      nombreRegex.test(nombre) &&
-      correoRegex.test(correo)
-    ) {
-      setShowCard(true);
-      setError(false);
-    } else {
-      setError(true);
-      setShowCard(false);
-    }
-  };
-
-  const reset = () => {
-    setNombre("");
-    setCorreo("");
-    setError(false);
-    setShowCard(false);
-  };
-
-  // Aplica la clase de tema con base en el estado del tema
   const formClassName = `${FormStyles.form} ${state.theme === 'dark' ? FormStyles.dark : FormStyles.light}`;
 
   return (
     <div className={formClassName}>
-      {!showCard && (
+      {!state.showCard && (
         <form onSubmit={handleSubmit}>
           <label>Nombre: </label>
           <input
             type="text"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
+            name="nombre"
+            value={state.nombre}
+            onChange={handleInputChange}
           />
           <label>Correo: </label>
           <input
             type="text"
-            value={correo}
-            onChange={(e) => setCorreo(e.target.value)}
+            name="correo"
+            value={state.correo}
+            onChange={handleInputChange}
           />
 
-          {error && (
+          {state.error && (
             <h3 style={{ color: "red" }}>
               Por favor verifique su información nuevamente.
             </h3>
@@ -67,7 +38,7 @@ const Form = () => {
         </form>
       )}
 
-      {showCard && <Register nombre={nombre} correo={correo} />}
+      {state.showCard && <Register nombre={state.nombre} correo={state.correo} />}
     </div>
   );
 };
